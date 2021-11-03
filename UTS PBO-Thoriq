@@ -1,0 +1,164 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Main{
+
+    private String[] MyHP = {"Holland Lop","Netherland Dwarf"};
+    public List <HP> jenisHP = new ArrayList<HP>();
+    public List <HP> jenisHP = new ArrayList<HP>();
+
+    public static void main(String[] args) {
+
+        System.out.println("===================================================");
+        System.out.println("\t\tJenis - jenis HP");
+        System.out.println("===================================================");
+
+        Scanner myObj = new Scanner(System.in);
+        Main m = new Main();
+
+        System.out.println("\nPilihlah angka untuk melanjutkan");
+        System.out.println("1. Menambahkan jenis helmet baru");
+        System.out.println("2. Melihat jenis helmet");
+        System.out.print("\nPilih angka : ");
+
+        String input = myObj.nextLine();
+        int code = Integer.parseInt(input);
+        System.out.println("===================================================");
+
+        switch (code) {
+            case 1:
+                m.InputListHP();
+                break;
+            case 2:
+                m.ShowListHP();
+                break;
+
+            default:
+                System.out.println("Pilihan tidak terdaftar");
+                break;
+        }
+
+    }
+
+    public void InputListHP(){
+
+        System.out.println("\n---------------------------------------------------");
+        System.out.println("\t\tMenambahkan HP");
+        System.out.println("---------------------------------------------------\n");
+        System.out.println("Pilih jenis HP : ");
+
+        int i=1;
+        for (String HP : MyHP){
+            System.out.println(i + "." + HP);
+            i++;
+        }
+
+        System.out.print("\nMasukkan pilihan : ");
+        Scanner myObj = new Scanner(System.in);
+
+        String inputProduct = myObj.nextLine();
+        int product = Integer.parseInt(inputProduct);
+
+        switch (product) {
+            case 1:
+                try {
+                    jenisHP1 =  InputHPiHl();
+                } catch (Exception e) {
+                    System.out.println("Masukkan data yang valid!");
+                    System.out.println("Error: "+e.getMessage());
+                }
+                break;
+
+            case 2:
+                try {
+                    jenisHP2 =  InputHPND();
+                } catch (Exception e) {
+                    System.out.println("Masukkan data yang valid!");
+                    System.out.println("Error: "+e.getMessage());
+                }
+                break;
+
+            default:
+                break;
+
+        }
+
+        myObj.close();
+
+    }
+
+    public List InputHPHL() {
+
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("\n============= Jenis HP Baru =============");
+
+        int jmlData1 = 2;
+        for (int i = 0; i < jmlData1; i++) {
+           helmet k1 = new HP();
+            System.out.println("Jenis ke-" + (i+1) + " :");
+
+            System.out.print("Pilihan Warna : ");
+            String Warna = myObj.nextLine();
+            k1.setWarna(warna);
+
+            System.out.print("Nama Produk : ");
+            String Produk = myObj.nextLine();
+            k1.setProduk(Produk);
+
+            System.out.print("Warna Produk : ");
+            String warna = myObj.nextLine();
+            k1.setWarna(warna);
+
+            System.out.println('\n');
+            this.jenisHP1.add(k1);
+        }
+
+        System.out.println("\n");
+        myObj.close();
+        return this.jenisHP1;
+
+    }
+
+    public List InputHPND() {
+
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("\n============= Produk HP Baru =============");
+
+        int jmlData2 = 2;
+        for (int i = 0; i < jmlData2; i++) {
+           Snack k2 = new Snack();
+            System.out.println("Jenis ke-" + (i+1) + ":");
+
+            System.out.print("Pilihan warna : ");
+            String warna = myObj.nextLine();
+            k2.setWarna(warna);
+
+            System.out.print("Nama Produk : ");
+            String Produk = myObj.nextLine();
+            k2.setProduk(produk);
+
+            System.out.print("Warna Produk : ");
+            String Produk = myObj.nextLine();
+            k2.setWarna(warna);
+
+            System.out.println('\n');
+            this.jenisHP2.add(k2);
+        }
+
+        System.out.println("\n");
+        myObj.close();
+        return this.jenisHP2;
+
+    }
+
+    public void ShowListHP(){
+
+        for (String x : MyHPi) {
+            System.out.println("HP yang sudah ada yaitu : "+ x);
+        }
+
+    }
+
+}
